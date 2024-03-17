@@ -5,6 +5,6 @@ Simple PHP Laravel Project to manage and display academic results with ease. Mad
 ### Installation
 
 To run the app on your local machine:
-    - Clone the repository.
-    - Make sure Docker is installed and running.
-    - Open terminal in the folder and run ```./vendor/bin/sail up```
+- Clone the repository.
+- Make sure Docker is installed and running.
+- Open terminal in the folder and run ```./vendor/bin/sail up```
