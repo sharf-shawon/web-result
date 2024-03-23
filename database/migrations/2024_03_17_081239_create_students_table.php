@@ -23,6 +23,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->timestamps();
         });
+        Schema::create('course_student', function (Blueprint $table) {
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('student_id');
+        });
     }
 
     /**
