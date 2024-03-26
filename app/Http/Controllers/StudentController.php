@@ -37,12 +37,15 @@ class StudentController extends Controller
             'phone' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'date_of_birth' => ['required', 'date'],
+            'date_of_issue' => ['required', 'date'],
+            'department' => ['required', 'string', 'max:255'],
+            'session' => ['required', 'string', 'max:255'],
             'cgpa' => ['required', 'numeric', 'min:0', 'max:4'],
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
 
         if ($request->hasFile('image'))
-            $validated['image'] = $request->file('image')->store('images');
+            $validated['image'] = $request->file('image')->store('images', ['disk' => 'public']);
 
         Student::create($validated);
 
@@ -79,12 +82,15 @@ class StudentController extends Controller
             'phone' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'date_of_birth' => ['required', 'date'],
+            'date_of_issue' => ['required', 'date'],
+            'department' => ['required', 'string', 'max:255'],
+            'session' => ['required', 'string', 'max:255'],
             'cgpa' => ['required', 'numeric', 'min:0', 'max:4'],
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'image' => ['nullable', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ]);
 
         if ($request->hasFile('image'))
-            $validated['image'] = $request->file('image')->store('images');
+            $validated['image'] = $request->file('image')->store('images', ['disk' => 'public']);
 
         $student->update($validated);
 

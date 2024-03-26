@@ -2,11 +2,21 @@
     <section style="font-family: Montserrat" class=" bg-[#071e34]font-medium items-center justify-center">
 
         <div class="mt-3">
+            @if ($student->image)
+                <figure class="max-w-lg">
+                    <img class="h-auto max-w-full rounded-lg" src="{{ url("uploads/{$student->image}") }}"
+                        alt="student image">
+                </figure>
+            @endif
+
             <span class="text-xl tracking-wide text-black dark:text-white">Name: {{ $student->name }}</span>
             <p>
                 <span class="text-black dark:text-white">Student ID: {{ $student->student_id }}</span><br>
+                <span class="text-black dark:text-white">Department: {{ $student->department }}</span><br>
+                <span class="text-black dark:text-white">Session: {{ $student->session }}</span><br>
                 <span class="text-black dark:text-white">Date of Birth: {{ $student->date_of_birth }}</span><br>
                 <span class="text-black dark:text-white">CGPA: {{ $student->cgpa }}</span><br>
+                <span class="text-black dark:text-white">Date of Issue: {{ $student->date_of_issue }}</span><br>
             </p>
         </div>
 
