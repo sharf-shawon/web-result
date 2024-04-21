@@ -19,44 +19,45 @@
                 <span class="text-black dark:text-white">Date of Issue: {{ $student->date_of_issue }}</span><br>
             </p>
         </div>
-
-        <div class="mt-3">
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                    <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Course
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Semester
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                GPA
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($student->results as $item)
-                            <tr
-                                class="border-b odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 dark:border-gray-700">
-                                <td scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $item->course->code }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $item->course->semester->name }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $item->gpa }}
-                                </td>
+        @if (!$student->results->isEmpty())
+            <div class="mt-3">
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                        <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Course
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Semester
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    GPA
+                                </th>
                             </tr>
-                        @endforeach
+                        </thead>
+                        <tbody>
+                            @foreach ($student->results as $item)
+                                <tr
+                                    class="border-b odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 dark:border-gray-700">
+                                    <td scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $item->course->code }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->course->semester->name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $item->gpa }}
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        @endif
 
     </section>
 </x-guest-layout>
